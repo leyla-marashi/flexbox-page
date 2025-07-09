@@ -17,7 +17,7 @@ body {
 }
 
 .container-body {
-    max-width: 1300px;
+    max-width: 112.5rem;
     background-color: rgb(0, 0, 0);
     margin: 0 auto;
     color: white;
@@ -26,9 +26,9 @@ body {
 main,
 header,
 footer {
-    margin: 20px;
-    padding: 0 20px;
-    border: 2px inset;
+    margin: 1.25rem;
+    padding: 0 1.25rem;
+    border: 0.125rem inset;
     border-image: linear-gradient(7deg, purple, red, yellow) 30;
     animation-name: border-color;
     animation-duration: 2s;
@@ -51,9 +51,6 @@ footer {
     width: 50%;
 }
 
-/* .header-right{
-    transition: all 5s;
-} */
 .btn {
     border: none;
     font-size: 2.2rem;
@@ -72,16 +69,16 @@ footer {
 
 ul.ul-container {
     /* sidebar */
-    transition: all 1s;
+    transition: all 0.5s linear;
+    padding-top: 1rem;
     list-style: none;
-    width: 0;
     height: 260vh;
     width: 100%;
     background-color: rgb(0, 0, 0);
     position: fixed;
     top: 0;
     text-align: center;
-    border: 3px solid;
+    border: 0.188rem solid;
     border-image: linear-gradient(7deg, purple, red, yellow) 30;
     animation-name: border-color;
     animation-duration: 2s;
@@ -99,17 +96,18 @@ ul.ul-container {
 }
 
 ul.ul-container>li {
-    margin: 0 0.4rem;
+    margin: 0 0.5rem;
 }
 
 li>a {
     display: inline-block;
-    margin-top: 1.2rem;
+    margin-top: 1.8rem;
     text-decoration: none;
     color: #fdffb6;
     font-size: 1.4rem;
     transition-property: all;
-    transition-duration: 400ms;
+    transition-duration: 0.9ms;
+    transition-timing-function: linear;
 }
 
 li>a:hover {
@@ -124,22 +122,20 @@ li>a:hover {
 
 .logo,
 .logo>img {
-    max-width: 90%;
-    width: 90%;
-    max-width: 80px;
+    max-width: 100%;
+    width: 100%;
+    max-width: 3.75rem;
     display: block;
     height: auto;
+    margin-right: 0.4rem;
 }
 
 h1 {
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     color: #F6DC43;
 }
 
 @media screen and (min-width:800px) {
-    html {
-        font-size: 16px;
-    }
 
     h1 {
         font-size: 1.2rem;
@@ -150,20 +146,21 @@ h1 {
     }
 
     ul.ul-container {
+        padding-top: 0;
         height: 100%;
         width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
         position: static;
         left: 0;
         border: none;
         border-image: none;
         animation-name: none;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
     }
 
     ul.ul-container>li {
-        margin-right:1rem;
+        margin-right: 1rem;
     }
 
     li>a {
@@ -177,8 +174,8 @@ h1 {
 
     .logo,
     .logo>img {
-        max-width: 80%;
-        width: 90%;
+        max-width: 100%;
+        width: 100%;
         max-width: 70px;
         margin-left: 0.4rem;
     }
@@ -212,12 +209,12 @@ h1 {
 }
 
 .sec-media-right {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 
 .sec-media-right>h2 {
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 1.25rem;
+    margin-top: 1.25rem;
 }
 
 @media screen and (min-width:800px) {
@@ -229,8 +226,8 @@ h1 {
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        margin-bottom: 90px;
+        gap: 0.625rem;
+        margin-bottom: 5.625rem;
         font-size: 1.2rem;
     }
 
@@ -248,19 +245,29 @@ h1 {
     flex-direction: column;
     justify-content: space-evenly;
 }
-
+.icons{
+    margin-left: 0.9rem;
+}
 .icons>a {
-    font-size: 1.6rem;
-    margin-right: 0.9rem;
+    font-size: 1.8rem;
+    margin-right: 1.7rem;
     color: #1c2541;
-    filter: blur(0.5px);
+    filter: blur(0.031rem);
 }
 
-.icons>a:hover i {
-    color: #6fffe9;
-    filter: blur(0px) drop-shadow(0 0 1rem #6fffe9);
-    text-shadow: 0 0 5px blue;
-
+.icons>a:hover i.fa-github {
+    color: #e8fffc;
+    filter: blur(0rem);
+}
+.icons>a:hover i.fa-telegram {
+    color: #24abeb;
+    filter: blur(0rem);
+}
+.icons>a:hover i.fa-instagram {
+    color: transparent;
+    background-image: linear-gradient(90deg,red,blue);
+    background-clip: text;
+    filter: blur(0rem);
 }
 
 /* animation */
@@ -269,17 +276,14 @@ h1 {
         border-image: linear-gradient(7deg, purple, red, yellow) 5;
     }
 
-    /* box-shadow: X Y Blur Spread Color; */
     30% {
         border-image: linear-gradient(7deg, yellow, purple, red) 5;
     }
 
-    /* box-shadow: X Y Blur Spread Color; */
     60% {
         border-image: linear-gradient(7deg, red, rgb(255, 255, 0), purple) 5;
     }
 
-    /* box-shadow: X Y Blur Spread Color; */
     100% {
         border-image: linear-gradient(7deg, purple, red, yellow) 5;
     }
