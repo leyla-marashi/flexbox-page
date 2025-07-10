@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root,
+.lightmode {
+    --bg-color: white;
+    --body-text-color: black;
+    --h1-menuBtn-color: #dd9700;
+    --text-link-color: #1b2122;
+}
+
+.darkmode {
+    --bg-color: black;
+    --body-text-color: white;
+    --h1-menuBtn-color: #dd9700;
+    --text-link-color: #c4f5fc;
+}
+
 *,
 ::after,
 ::before {
@@ -11,16 +28,19 @@ html {
 }
 
 body {
-    background-color: rgb(0, 0, 0);
+    background-color: var(--bg-color);
     font-size: 1rem;
-    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 2rem 0;
 }
 
 .container-body {
     max-width: 112.5rem;
-    background-color: rgb(0, 0, 0);
+    background-color: var(--bg-color);
     margin: 0 auto;
-    color: white;
+    color: var(--body-text-color);
 }
 
 main,
@@ -51,14 +71,43 @@ footer {
     width: 50%;
 }
 
+#theme-switch {
+    font-size: 1.5rem;
+    padding: 0;
+    position: absolute;
+    top: 1.5%;
+    right: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    color: var(--h1-menuBtn-color);
+    cursor: pointer;
+}
+
+#theme-switch i:last-child {
+    display: none;
+}
+
+.darkmode #theme-switch i:first-child {
+    display: none;
+}
+
+.darkmode #theme-switch i:last-child {
+    display: block;
+}
+
+
 .btn {
     border: none;
-    font-size: 2.2rem;
+    font-size: 2rem;
     position: fixed;
-    top: 4%;
+    top: 9%;
     right: 6%;
-    background: black;
-    color: #dd9700;
+    background: transparent;
+    background-color: transparent;
+    color: var(--h1-menuBtn-color);
     cursor: pointer;
     z-index: 1;
 }
@@ -68,18 +117,18 @@ footer {
 }
 
 ul.ul-container {
-    /* sidebar */
+    background-color: var(--bg-color);
     transition: all 0.5s linear;
     padding-top: 1rem;
     list-style: none;
-    height: 260vh;
+    height: 100vh;
+    overflow: hidden;
     width: 100%;
-    background-color: rgb(0, 0, 0);
     position: fixed;
     top: 0;
     text-align: center;
     border: 0.188rem solid;
-    border-image: linear-gradient(7deg, purple, red, yellow) 30;
+    border-image: linear-gradient(7deg, rgb(13, 0, 128), red, yellow) 30;
     animation-name: border-color;
     animation-duration: 2s;
     animation-timing-function: linear;
@@ -103,7 +152,7 @@ li>a {
     display: inline-block;
     margin-top: 1.8rem;
     text-decoration: none;
-    color: #fdffb6;
+    color: var(--text-link-color);
     font-size: 1.4rem;
     transition-property: all;
     transition-duration: 0.9ms;
@@ -111,7 +160,7 @@ li>a {
 }
 
 li>a:hover {
-    color: #F6DC43;
+    color: var(--h1-menuBtn-color);
 }
 
 .header-left {
@@ -124,7 +173,7 @@ li>a:hover {
 .logo>img {
     max-width: 100%;
     width: 100%;
-    max-width: 3.75rem;
+    max-width: 5rem;
     display: block;
     height: auto;
     margin-right: 0.4rem;
@@ -132,10 +181,14 @@ li>a:hover {
 
 h1 {
     font-size: 1.1rem;
-    color: #F6DC43;
+    color: var(--h1-menuBtn-color);
 }
 
 @media screen and (min-width:800px) {
+
+    #theme-switch {
+        right: 2.6%;
+    }
 
     h1 {
         font-size: 1.2rem;
@@ -146,6 +199,7 @@ h1 {
     }
 
     ul.ul-container {
+        background-color: transparent;
         padding-top: 0;
         height: 100%;
         width: 100%;
@@ -166,7 +220,7 @@ h1 {
     li>a {
         display: inline;
         text-decoration: none;
-        color: #fdffb6;
+        color: var(--text-link-color);
         font-size: 1.4rem;
         transition-property: all;
         transition-duration: 400ms;
@@ -176,50 +230,56 @@ h1 {
     .logo>img {
         max-width: 100%;
         width: 100%;
-        max-width: 70px;
+        max-width: 4.375rem;
         margin-left: 0.4rem;
     }
 }
 
-/* .main */
+/*....................... main ....................... */
 .container-main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    max-width: 90%;
+    max-width: 93%;
     margin: 0 auto;
     font-size: 1rem;
     line-height: 2rem;
-    text-align: justify;
-    color: #fcfcfc;
-    color: #c4f5fc;
+    color: var(--text-link-color);
+}
+
+/*..... sec-media-left image .....*/
+.sec-media-left {
+    margin-top: 3.25rem;
 }
 
 .img,
 .img>img {
     max-width: 100%;
     width: 100%;
-    min-width: 300px;
-    max-width: 600px;
+    min-width: 6.25rem;
+    max-width: 18.75rem;
     display: block;
-    object-fit: fill;
-    margin: 0 auto;
-    height: 100%;
+    margin: auto;
+    margin-bottom: 1rem;
 }
 
+.border-img {
+    border-bottom: 0.1rem solid var(--body-text-color);
+}
+
+/* ...... text ......*/
 .sec-media-right {
-    margin-bottom: 1.25rem;
+    margin-bottom: 3.25rem;
 }
 
 .sec-media-right>h2 {
     margin-bottom: 1.25rem;
-    margin-top: 1.25rem;
 }
 
 @media screen and (min-width:800px) {
     .sec-media {
-        width: 95%;
+        width: 100%;
         margin: auto;
         text-align: justify;
         display: flex;
@@ -227,15 +287,16 @@ h1 {
         align-items: center;
         justify-content: center;
         gap: 0.625rem;
-        margin-bottom: 5.625rem;
         font-size: 1.2rem;
     }
 
-    .sec-media-left {
-        padding-top: 0;
+    .img,
+    .img>img {
+        margin-right: 1.5rem;
     }
 
     .sec-media-right {
+        padding-top: 6rem;
         max-width: 50%;
     }
 }
@@ -245,9 +306,11 @@ h1 {
     flex-direction: column;
     justify-content: space-evenly;
 }
-.icons{
+
+.icons {
     margin-left: 0.9rem;
 }
+
 .icons>a {
     font-size: 1.8rem;
     margin-right: 1.7rem;
@@ -256,21 +319,37 @@ h1 {
 }
 
 .icons>a:hover i.fa-github {
-    color: #e8fffc;
+    color: var(--body-text-color);
     filter: blur(0rem);
 }
+
 .icons>a:hover i.fa-telegram {
     color: #24abeb;
     filter: blur(0rem);
 }
+
 .icons>a:hover i.fa-instagram {
     color: transparent;
-    background-image: linear-gradient(90deg,red,blue);
+    background-image: linear-gradient(90deg, red, blue);
     background-clip: text;
     filter: blur(0rem);
 }
 
-/* animation */
+.footer-right {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+p.design {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--body-text-color);
+    font-style: italic;
+    text-transform: capitalize;
+}
+
+/*.................. animation ...................*/
 @keyframes border-color {
     10% {
         border-image: linear-gradient(7deg, purple, red, yellow) 5;
